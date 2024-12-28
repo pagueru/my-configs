@@ -1,0 +1,92 @@
+# ~/.config/starship.toml
+
+# Presets: https://starship.rs/pt-BR/presets/
+# Gruvbox Rainbow Preset: https://starship.rs/pt-BR/presets/gruvbox-rainbow
+# Gruvbox: https://github.com/morhetz/gruvbox
+# Pastel Powerline: https://starship.rs/pt-BR/presets/pastel-powerline
+
+# Habilita validação e autocompletar no editor de texto.
+# Valida a sintaxe e sugere chaves válidas no starship.toml.
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[╭─](fg:_celurean_blue)\
+$directory\
+[](fg:_celurean_blue bg:color_blue)\
+$git_branch\
+[](fg:color_blue bg:color_aqua)\
+$python\
+[](fg:color_aqua bg:color_bg1)\
+$time\  
+[](fg:color_bg1)\
+$line_break\
+[╰─](bold fg:_celurean_blue)\
+$character\
+"""
+
+# Insere uma linha branca entre os prompts do shell
+add_newline = true
+
+# Define a paleta de cores
+palette = 'gruvbox_dark'
+
+# Define cores personalizadas
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = "#fb4934" # original: '#cc241d'
+color_salmon = '#D08770'
+color_yellow = '#d79921'
+
+_celurean_blue = "#0077c0"
+_violet = "#7A5F9A"
+_deep_teal = "#076678"
+_steel_blue = "#4C7FB6"
+
+# [username]
+# disabled = false
+# show_always = true
+# style_user = "bg:_celurean_blue fg:color_fg0"
+# style_root = "bg:_celurean_blue fg:color_fg0"
+# format = '[$user ]($style)'
+# aliases = {  "rapha" = ".bash" , "Raphael" = ".bash" }
+
+[directory]
+disabled = false
+style = "fg:color_fg0 bg:_celurean_blue"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+disabled = false
+symbol = ""
+style = "bg:color_aqua"
+format = '[[ $symbol $branch ](fg:color_fg0 bg:color_blue)]($style)'
+
+[python]
+disabled = false
+symbol = ""
+style = "bg:color_aqua"
+pyenv_version_name = false
+format = '[[ $symbol $version ](fg:color_fg0 bg:color_aqua)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:color_bg1"
+format = '[[  $time ](fg:color_fg0 bg:color_bg1)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[⮞](bold fg:_celurean_blue)'
+error_symbol = '[⮞](fg:color_red)'
